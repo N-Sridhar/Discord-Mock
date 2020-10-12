@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import 'firebase/firestore'
-import 'firebase/auth'
+import "firebase/firestore";
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCrMKsjwlELk_T_jL6TaqhyaENYuwY8KL8",
@@ -17,6 +17,8 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
+const providerFb = new firebase.auth.FacebookAuthProvider();
+providerFb.addScope("user_birthday");
 
-export { auth, provider };
+export { auth, provider, providerFb };
 export default db;

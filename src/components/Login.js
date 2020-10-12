@@ -1,11 +1,20 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import "./styles/Login.css";
-import { auth, provider } from "../firebase";
+import { auth, provider, providerFb } from "../firebase";
 
 function Login() {
   const signIn = () => {
     auth.signInWithPopup(provider).catch((error) => alert(error.message));
+  };
+  const fbsignIn = () => {
+    auth
+      .signInWithPopup(providerFb)
+      .then((res) => {
+        console.log("token: ", res.credential.accessToken);
+        console.log("user: ", res.user);
+      })
+      .catch((error) => alert(error.message));
   };
   return (
     <div className="login">
@@ -16,6 +25,7 @@ function Login() {
         />
       </div>
       <Button onClick={signIn}>Sign In</Button>
+      <Button onClick={fbsignIn}>Fb Sign In</Button>
     </div>
   );
 }

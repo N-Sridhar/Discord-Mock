@@ -48,8 +48,9 @@ function Chat() {
     <div className="chat">
       <ChatHeader channelName={channelName} />
       <div className="chat_messages">
-        {messages.map((message) => (
+        {messages.map((message, i) => (
           <Message
+            key={i}
             message={message.message}
             user={message.user}
             timestamp={message.timestamp}
