@@ -21,6 +21,16 @@
   overflow: scroll;
 }
 
+.sidebar_channels::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide Scrollbar for IE, Edge and Firefox */
+.sidebar_channels {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .sidebar_addChannel {
   cursor: pointer;
 }
